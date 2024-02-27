@@ -1,0 +1,82 @@
+set terminal pngcairo size 640,320
+set output "symmetric_los_error_diff.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Error'
+set yrange [ 0:80000 ]
+set xlabel 'Actual - Predicted'
+set xrange [ -21:21 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'symmetric_los_error_diff.csv' u 1:2:xtic(5) w boxes
+
+reset session
+
+set terminal pngcairo
+set output "symmetric_occupied_error_diff_old.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Occupancy'
+set yrange [ 0:8000 ]
+set xlabel 'Actual - Predicted'
+set xrange [ -15:20 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'symmetric_occupied_error_diff_old.csv' u 1:2 w boxes
+
+reset session
+
+set terminal pngcairo
+set output "symmetric_occupied_error_diff_new.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Occupancy'
+set yrange [ 0:350 ]
+set xlabel 'Actual - Predicted'
+set xrange [ -50:100 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'symmetric_occupied_error_diff_new.csv' u 1:2 w boxes
+
+reset session
+
+set terminal pngcairo
+set output "symmetric_occ.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Number of Days'
+set yrange [ 0:90 ]
+set xlabel 'Occupancy Error (Actual - Predicted)'
+set xrange [ -110:110 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'symmetric_occ.csv' u 1:2:xtic(5) w boxes
+
+reset session
+
+set terminal pngcairo size 1280,180
+set output "symmetric_occupied_error_within_year_new.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Error'
+set yrange [ -40:90 ]
+set xlabel 'Actual - Predicted'
+set xrange [ 0:367 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'symmetric_occupied_error_within_year_new.csv' u 1:3:xtic(100) w boxes

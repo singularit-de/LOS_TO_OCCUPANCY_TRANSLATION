@@ -1,0 +1,28 @@
+set terminal pngcairo
+set output "occupancy.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Number of Days'
+set xlabel 'Occupancy'
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'occupancy.csv' u 1:3:xtic(50) w boxes
+
+reset session
+
+set terminal pngcairo size 1280,180
+set output "bed_occupancy.png"
+set datafile separator ","
+set boxwidth 0.8
+set style fill solid border
+set ylabel 'Bed Occupancy'
+set xlabel 'Day in Year'
+set xrange [ 0:367 ]
+set key off
+set border 3
+set tics nomirror
+unset grid
+plot 'bed_occupancy.csv' u 1:3:xtic(100) w boxes
